@@ -6,9 +6,9 @@ import {
   Stack,
   styled,
   Typography,
-} from "@mui/material";
-import aboutImg from "../assets/images/about/about-img.png";
-import aboutStatue from "../assets/images/about/about-statue.png";
+} from "@mui/material"
+import aboutImg from "../assets/images/about/about-img.png"
+import aboutStatue from "../assets/images/about/about-statue.png"
 
 const services = [
   {
@@ -21,7 +21,7 @@ const services = [
   {
     title: "Все виды бухгалтерских услуг",
   },
-];
+]
 
 const StatsCard = styled(Card)(({ theme }) => ({
   background: `linear-gradient(to right, #CA8300 0%, #EDCB67 100%)`,
@@ -33,7 +33,7 @@ const StatsCard = styled(Card)(({ theme }) => ({
     transform: "translateY(-8px)",
     boxShadow: `0 20px 40px rgba(212, 168, 83, 0.3)`,
   },
-}));
+}))
 
 const ServiceCard = styled(Card)(({ theme }) => ({
   background: "#282828",
@@ -47,12 +47,19 @@ const ServiceCard = styled(Card)(({ theme }) => ({
     transform: "translateY(-4px)",
     boxShadow: `0 12px 24px rgba(0, 0, 0, 0.3)`,
   },
-}));
+}))
 
 const AboutImage = styled("img")({
   width: "310px",
   position: "relative",
-});
+})
+
+const AboutImageStatue = styled("img")({
+  width: "310px",
+  position: "relative",
+  bottom: -26,
+  left: -120,
+})
 
 export const About = () => {
   return (
@@ -64,7 +71,7 @@ export const About = () => {
         width="100%"
         mb="70px"
       >
-        <Box width="60%">
+        <Box width="80%">
           <Typography variant="h2" sx={{ mb: 4 }}>
             Юридическая компания "Akmatova & Associates"
           </Typography>
@@ -99,20 +106,28 @@ export const About = () => {
         <StatsCard>
           <CardContent
             sx={{
-              p: 4,
-              textAlign: "center",
-              alignItems: "center",
+              justifyContent: "flex-start",
               display: "flex",
+              p: 2,
+              width: "720px",
+              mt: "40px",
             }}
           >
-            <AboutImage src={aboutStatue} alt="" />
-            <Typography sx={{ mb: 2, fontSize: "32px", lineHeight: "normal" }}>
+            <Typography
+              sx={{
+                mb: 2,
+                fontSize: "32px",
+                lineHeight: "normal",
+                width: "340px",
+              }}
+            >
               В нашей команде работают лучшие юристы страны
             </Typography>
+            <AboutImageStatue src={aboutStatue} alt="" />
           </CardContent>
         </StatsCard>
 
-        <Grid container spacing={4} sx={{ width: "100%" }}>
+        <Grid container spacing={4} sx={{ width: "70%" }}>
           {services.map((service) => (
             <ServiceCard key={service.title}>
               <Typography variant="h6">{service.title}</Typography>
@@ -121,5 +136,5 @@ export const About = () => {
         </Grid>
       </Stack>
     </Box>
-  );
-};
+  )
+}

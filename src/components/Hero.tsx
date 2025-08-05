@@ -1,8 +1,8 @@
-import { Box, styled, Typography } from "@mui/material";
-import { AppButton } from "./UI/AppButton";
-import heroImg from "../assets/images/hero/hero.png";
-import heroItemImg from "../assets/images/hero/bg-hero-item.png";
-import heroStatueImg from "../assets/images/hero/hero-statue.png";
+import { Box, styled, Typography } from "@mui/material"
+import { AppButton } from "./UI/AppButton"
+import heroImg from "../assets/images/hero/hero.png"
+import heroItemImg from "../assets/images/hero/bg-hero-item.png"
+import heroStatueImg from "../assets/images/hero/hero-statue.png"
 
 const HeroSection = styled(Box)(() => ({
   display: "grid",
@@ -11,29 +11,28 @@ const HeroSection = styled(Box)(() => ({
   position: "relative",
   overflow: "hidden",
   padding: "0 80px",
-  height: "100%",
-  maxHeight: "990px",
-}));
+  gap: 10,
+}))
 
 const Container = styled(Box)(() => ({
   background: `linear-gradient(to right, #CA8300 0%, #EDCB67 100%)`,
   height: "100%",
-  minHeight: "700px",
-  maxHeight: "1230px",
-  padding: "85px 85px",
+  padding: "45px 45px",
   borderRadius: "15px",
   position: "relative",
   maxWidth: "800px",
   width: "100%",
-}));
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  justifyContent: "center",
+}))
 
 const StyledImg = styled("img")({
-  maxHeight: "830px",
   object: "cover",
-  width: "100%",
-  minWidth: "500px",
+  maxWidth: "500px",
   borderRadius: "15px",
-});
+})
 
 const BackgroundImage = styled("img")({
   position: "absolute",
@@ -41,14 +40,14 @@ const BackgroundImage = styled("img")({
   bottom: 0,
   width: "100%",
   //   zIndex: -,
-});
+})
 
 const StatueImage = styled("img")({
   position: "absolute",
   right: 0,
   bottom: 0,
-  width: "420px",
-});
+  width: "320px",
+})
 
 export const Hero = () => {
   return (
@@ -60,7 +59,9 @@ export const Hero = () => {
             color: "#fff",
             mb: 3,
             textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-            fontSize: "32px",
+            fontSize: "46px",
+            zIndex: 10000,
+            position: "relative",
           }}
         >
           ПРОФЕССИОНАЛЬНЫЕ ЮРИДИЧЕСКИЕ УСЛУГИ В БИШКЕКЕ
@@ -81,7 +82,11 @@ export const Hero = () => {
           команда опытных юристов и бухгалтеров готова помочь вам в решении
           любых правовых вопросов.
         </Typography>
-        <AppButton variant="contained" size="large">
+        <AppButton
+          variant="contained"
+          size="large"
+          sx={{ background: "#131017 !important", p: 2 }}
+        >
           ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
         </AppButton>
         <BackgroundImage src={heroItemImg} />
@@ -91,5 +96,5 @@ export const Hero = () => {
         <StyledImg src={heroImg} alt="Hero image" />
       </Box>
     </HeroSection>
-  );
-};
+  )
+}

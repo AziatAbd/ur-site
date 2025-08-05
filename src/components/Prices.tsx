@@ -1,7 +1,7 @@
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
-import { AppButton } from "./UI/AppButton";
-import { styled } from "@mui/system";
-import priceStatueImg from "../assets/images/price/price-statue.png";
+import { Box, Card, CardContent, Grid, Typography } from "@mui/material"
+import { AppButton } from "./UI/AppButton"
+import { styled } from "@mui/system"
+import priceStatueImg from "../assets/images/price/price-statue.png"
 
 const PricingCard = styled(Card)(({ theme }) => ({
   background: theme.palette.secondary.main,
@@ -13,14 +13,14 @@ const PricingCard = styled(Card)(({ theme }) => ({
     border: `2px solid ${theme.palette.primary.main}`,
     transform: "translateY(-4px)",
   },
-}));
+}))
 
 const PriceStatusImage = styled("img")({
   position: "absolute",
   right: 0,
   bottom: -17.5,
   width: "300px",
-});
+})
 
 export const Prices = () => {
   return (
@@ -46,7 +46,7 @@ export const Prices = () => {
       </Typography>
 
       <Box display="flex" gap="38px">
-        {[1, 2, 3, 4].map((item) => (
+        {[1, 2, 3, 4].map(() => (
           <Grid>
             <PricingCard>
               <CardContent sx={{ py: 4, pr: 2, textAlign: "center" }}>
@@ -67,11 +67,9 @@ export const Prices = () => {
                   или связаться с нами для разработки индивидуального
                   предложения.
                 </Typography>
-                {item === 1 && (
-                  <AppButton variant="contained" fullWidth color="primary">
-                    ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
-                  </AppButton>
-                )}
+                <AppButton variant="contained" fullWidth color="primary">
+                  ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
+                </AppButton>
               </CardContent>
             </PricingCard>
           </Grid>
@@ -79,5 +77,5 @@ export const Prices = () => {
       </Box>
       <PriceStatusImage src={priceStatueImg} alt="" />
     </Box>
-  );
-};
+  )
+}
