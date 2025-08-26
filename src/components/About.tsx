@@ -2,7 +2,6 @@ import {
   Box,
   Card,
   CardContent,
-  Grid,
   Stack,
   styled,
   Typography,
@@ -30,8 +29,14 @@ const StatsCard = styled(Card)(({ theme }) => ({
   transition: "all 0.3s ease",
   height: "100%",
   "&:hover": {
-    transform: "translateY(-8px)",
-    boxShadow: `0 20px 40px rgba(212, 168, 83, 0.3)`,
+    transform: "translateY(-4px)",
+    boxShadow: `0 12px 24px rgba(212, 168, 83, 0.3)`,
+  },
+  [theme.breakpoints.up("md")]: {
+    "&:hover": {
+      transform: "translateY(-8px)",
+      boxShadow: `0 20px 40px rgba(212, 168, 83, 0.3)`,
+    },
   },
 }))
 
@@ -40,42 +45,91 @@ const ServiceCard = styled(Card)(({ theme }) => ({
   color: theme.palette.text.primary,
   transition: "all 0.3s ease",
   width: "100%",
-  padding: "16px",
+  padding: "12px",
   display: "flex",
   alignItems: "center",
+  marginBottom: "16px",
   "&:hover": {
-    transform: "translateY(-4px)",
-    boxShadow: `0 12px 24px rgba(0, 0, 0, 0.3)`,
+    transform: "translateY(-2px)",
+    boxShadow: `0 8px 16px rgba(0, 0, 0, 0.3)`,
+  },
+  [theme.breakpoints.up("sm")]: {
+    padding: "14px",
+    "&:hover": {
+      transform: "translateY(-3px)",
+      boxShadow: `0 10px 20px rgba(0, 0, 0, 0.3)`,
+    },
+  },
+  [theme.breakpoints.up("md")]: {
+    padding: "16px",
+    "&:hover": {
+      transform: "translateY(-4px)",
+      boxShadow: `0 12px 24px rgba(0, 0, 0, 0.3)`,
+    },
   },
 }))
 
-const AboutImage = styled("img")({
-  width: "310px",
+const AboutImage = styled("img")(({ theme }) => ({
+  width: "200px",
+  maxWidth: "100%",
   position: "relative",
-})
+  [theme.breakpoints.up("sm")]: {
+    width: "250px",
+  },
+  [theme.breakpoints.up("md")]: {
+    width: "310px",
+  },
+}))
 
-const AboutImageStatue = styled("img")({
-  width: "310px",
+const AboutImageStatue = styled("img")(({ theme }) => ({
+  width: "200px",
+  maxWidth: "100%",
   position: "relative",
-  bottom: -26,
-  left: -120,
-})
+  [theme.breakpoints.up("sm")]: {
+    width: "250px",
+  },
+  [theme.breakpoints.up("md")]: {
+    width: "310px",
+  },
+}))
 
 export const About = () => {
   return (
-    <Box sx={{ py: 8, px: "80px" }}>
+    <Box
+      sx={{
+        py: { xs: 4, sm: 6, md: 8 },
+        px: { xs: 2, sm: 3, md: 5, lg: "80px" },
+      }}
+    >
+      {/* Первый блок */}
       <Stack
         alignItems="center"
-        direction="row"
-        gap="47px"
+        direction={{ xs: "column", md: "row" }}
+        gap={{ xs: 3, sm: 4, md: "47px" }}
         width="100%"
-        mb="70px"
+        mb={{ xs: 4, sm: 5, md: "70px" }}
       >
-        <Box width="80%">
-          <Typography variant="h2" sx={{ mb: 4 }}>
+        <Box width={{ xs: "100%", md: "80%" }}>
+          <Typography
+            variant="h2"
+            sx={{
+              mb: { xs: 2, sm: 3, md: 4 },
+              fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
+              textAlign: { xs: "center", md: "left" },
+              lineHeight: { xs: 1.2, md: 1.3 },
+            }}
+          >
             Юридическая компания "Akmatova & Associates"
           </Typography>
-          <Typography variant="body1" sx={{ mb: 4 }}>
+          <Typography
+            variant="body1"
+            sx={{
+              mb: { xs: 2, sm: 3, md: 4 },
+              fontSize: { xs: "14px", sm: "15px", md: "16px" },
+              lineHeight: { xs: 1.4, md: 1.6 },
+              textAlign: { xs: "center", md: "left" },
+            }}
+          >
             Мы являемся ведущей юридической фирмой в Бишкеке, предоставляющей
             широкий спектр юридических услуг для бизнеса и частных лиц. Наша
             команда опытных юристов и бухгалтеров готова помочь вам в решении
@@ -85,55 +139,112 @@ export const About = () => {
         <StatsCard>
           <CardContent
             sx={{
-              p: 4,
+              p: { xs: 2, sm: 3, md: 4 },
               textAlign: "center",
               alignItems: "center",
               display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
             }}
           >
             <AboutImage src={aboutImg} alt="" />
-            <Typography sx={{ mb: 2, fontSize: "32px" }}>
+            <Typography
+              sx={{
+                mb: 2,
+                fontSize: { xs: "18px", sm: "24px", md: "28px", lg: "32px" },
+                lineHeight: { xs: 1.2, md: 1.3 },
+                mt: { xs: 2, sm: 0 },
+              }}
+            >
               Наши специалисты являются одними из лучших юристов Кыргызстана
             </Typography>
           </CardContent>
         </StatsCard>
       </Stack>
-      <Typography variant="h3" sx={{ mb: 3 }}>
+
+      {/* Заголовок второго блока */}
+      <Typography
+        variant="h3"
+        sx={{
+          mb: { xs: 2, sm: 2.5, md: 3 },
+          fontSize: { xs: "20px", sm: "24px", md: "28px" },
+          textAlign: { xs: "center", md: "left" },
+          lineHeight: { xs: 1.2, md: 1.3 },
+        }}
+      >
         Мы специализируемся в следующих областях корпоративного права:
       </Typography>
 
-      <Stack direction="row" alignItems="center" gap="27px">
-        <StatsCard>
+      {/* Второй блок */}
+      <Stack
+        direction={{ xs: "column", lg: "row" }}
+        alignItems={{ xs: "center", lg: "flex-start" }}
+        gap={{ xs: 3, sm: 4, lg: "27px" }}
+      >
+        <StatsCard sx={{ order: { xs: 2, lg: 1 } }}>
           <CardContent
             sx={{
-              justifyContent: "flex-start",
+              justifyContent: { xs: "center", md: "flex-start" },
               display: "flex",
-              p: 2,
-              width: "720px",
-              mt: "40px",
+              flexDirection: { xs: "column", md: "row" },
+              alignItems: "center",
+              p: { xs: 2, sm: 2.5, md: 3 },
+              width: { xs: "100%", lg: "720px" },
+              mt: { xs: 2, md: "40px" },
             }}
           >
             <Typography
               sx={{
                 mb: 2,
-                fontSize: "32px",
+                fontSize: { xs: "18px", sm: "24px", md: "28px", lg: "32px" },
                 lineHeight: "normal",
-                width: "340px",
+                width: { xs: "100%", md: "340px" },
+                textAlign: { xs: "center", md: "left" },
               }}
             >
               В нашей команде работают лучшие юристы страны
             </Typography>
-            <AboutImageStatue src={aboutStatue} alt="" />
+            <Box
+              sx={{
+                display: { xs: "none", sm: "block" },
+                position: "relative",
+                width: "100%",
+                overflow: "hidden",
+              }}
+            >
+              <AboutImageStatue src={aboutStatue} alt="" />
+            </Box>
+            <AboutImageStatue
+              src={aboutStatue}
+              alt=""
+              sx={{
+                bottom: { xs: -15, sm: -20, md: -26 },
+                left: { xs: -60, sm: -80, md: -120 },
+                position: "relative",
+              }}
+            />
           </CardContent>
         </StatsCard>
 
-        <Grid container spacing={4} sx={{ width: "70%" }}>
-          {services.map((service) => (
-            <ServiceCard key={service.title}>
-              <Typography variant="h6">{service.title}</Typography>
+        <Box
+          sx={{
+            width: { xs: "100%", lg: "70%" },
+            order: { xs: 1, lg: 2 },
+          }}
+        >
+          {services.map((service, index) => (
+            <ServiceCard key={index}>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontSize: { xs: "14px", sm: "15px", md: "16px" },
+                  lineHeight: { xs: 1.3, md: 1.4 },
+                }}
+              >
+                {service.title}
+              </Typography>
             </ServiceCard>
           ))}
-        </Grid>
+        </Box>
       </Stack>
     </Box>
   )

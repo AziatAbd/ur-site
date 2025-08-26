@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { ContactForm } from "../components/UI/ContactForm"
 
-const StyledServices = styled(Box)({
+const StyledServices = styled(Box)(({ theme }) => ({
   background: "#282828",
   margin: "0 80px 60px",
   padding: "44px 32px",
@@ -14,17 +14,28 @@ const StyledServices = styled(Box)({
   display: "flex",
   gap: "33px",
   marginTop: "80px",
-})
+
+  [theme.breakpoints.down("sm")]: {
+    padding: "24px",
+    gap: 15,
+    margin: "20px",
+    flexDirection: "column",
+  },
+}))
 
 const ServiceImage = styled("img")({
-  width: "700px",
+  width: "100%",
+  maxWidth: "700px",
+  height: "100%",
 })
 
-const ListContainer = styled(Box)({
+const ListContainer = styled(Box)(({ theme }) => ({
   background: "#282828",
   borderRadius: "4px",
   padding: "16px 19px",
-})
+
+  [theme.breakpoints.down("sm")]: {},
+}))
 
 const ListTitle = styled(Typography)({
   fontWeight: "bold",
@@ -65,7 +76,12 @@ const Services = () => {
         </Box>
       </StyledServices>
 
-      <Stack direction="row" px="150px" gap="64px" mb="90px">
+      <Stack
+        direction={{ xs: "column", md: "row" }}
+        px={{ xs: "20px", md: "140px" }}
+        gap={{ xs: "20px", md: "64px" }}
+        mb={{ xs: "30px", md: "90px" }}
+      >
         {[1, 2, 3, 4].map(() => (
           <ListContainer>
             <ListTitle>Аутсорсинг бухгалтерского учета</ListTitle>

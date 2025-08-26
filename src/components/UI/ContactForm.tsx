@@ -2,7 +2,7 @@ import { Box, Button, TextField, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import bgItem from "../../assets/icons/bg-item.svg"
 
-const Root = styled(Box)(() => ({
+const Root = styled(Box)(({ theme }) => ({
   backgroundColor: "#1E1E1E",
   color: "white",
   padding: "64px 32px",
@@ -13,6 +13,10 @@ const Root = styled(Box)(() => ({
   position: "relative",
   overflow: "hidden",
   margin: "0 80px 90px",
+  [theme.breakpoints.down("sm")]: {
+    padding: "24px",
+    margin: "0 20px 30px",
+  },
 }))
 
 const LeftBlock = styled(Box)(() => ({
@@ -76,7 +80,7 @@ const SubmitButton = styled(Button)(() => ({
   },
 }))
 
-const BgLines = styled(Box)(() => ({
+const BgLines = styled(Box)(({ theme }) => ({
   width: "60%",
   backgroundImage:
     "radial-gradient(circle at center, transparent 0%, transparent 40%, #3d3d3d 41%, transparent 42%)",
@@ -88,6 +92,10 @@ const BgLines = styled(Box)(() => ({
     position: "absolute",
     right: 0,
     top: 0,
+  },
+
+  [theme.breakpoints.down("md")]: {
+    display: "none",
   },
 }))
 

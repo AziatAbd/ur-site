@@ -19,7 +19,7 @@ const contacts = [
 const Contacts = () => {
   return (
     <div>
-      <Stack px="80px">
+      <Stack px={{ xs: "20px", md: "80px" }}>
         <Typography variant="h2">Контакты</Typography>
         <Box display="flex" justifyContent="space-between" mb="40px">
           {contacts.map((item) => (
