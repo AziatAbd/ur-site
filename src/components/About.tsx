@@ -8,6 +8,7 @@ import {
 } from "@mui/material"
 import aboutImg from "../assets/images/about/about-img.png"
 import aboutStatue from "../assets/images/about/about-statue.png"
+import { motion } from "framer-motion"
 
 const services = [
   {
@@ -109,70 +110,93 @@ export const About = () => {
         width="100%"
         mb={{ xs: 4, sm: 5, md: "70px" }}
       >
-        <Box width={{ xs: "100%", md: "80%" }}>
-          <Typography
-            variant="h2"
-            sx={{
-              mb: { xs: 2, sm: 3, md: 4 },
-              fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
-              textAlign: { xs: "center", md: "left" },
-              lineHeight: { xs: 1.2, md: 1.3 },
-            }}
-          >
-            Юридическая компания "Akmatova & Associates"
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              mb: { xs: 2, sm: 3, md: 4 },
-              fontSize: { xs: "14px", sm: "15px", md: "16px" },
-              lineHeight: { xs: 1.4, md: 1.6 },
-              textAlign: { xs: "center", md: "left" },
-            }}
-          >
-            Мы являемся ведущей юридической фирмой в Бишкеке, предоставляющей
-            широкий спектр юридических услуг для бизнеса и частных лиц. Наша
-            команда опытных юристов и бухгалтеров готова помочь вам в решении
-            любых правовых вопросов.
-          </Typography>
-        </Box>
-        <StatsCard>
-          <CardContent
-            sx={{
-              p: { xs: 2, sm: 3, md: 4 },
-              textAlign: "center",
-              alignItems: "center",
-              display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
-            }}
-          >
-            <AboutImage src={aboutImg} alt="" />
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          style={{ width: "100%" }}
+        >
+          <Box width={{ xs: "100%", md: "80%" }}>
             <Typography
+              variant="h2"
               sx={{
-                mb: 2,
-                fontSize: { xs: "18px", sm: "24px", md: "28px", lg: "32px" },
+                mb: { xs: 2, sm: 3, md: 4 },
+                fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
+                textAlign: { xs: "center", md: "left" },
                 lineHeight: { xs: 1.2, md: 1.3 },
-                mt: { xs: 2, sm: 0 },
               }}
             >
-              Наши специалисты являются одними из лучших юристов Кыргызстана
+              Юридическая компания "Akmatova & Associates"
             </Typography>
-          </CardContent>
-        </StatsCard>
+            <Typography
+              variant="body1"
+              sx={{
+                mb: { xs: 2, sm: 3, md: 4 },
+                fontSize: { xs: "14px", sm: "15px", md: "16px" },
+                lineHeight: { xs: 1.4, md: 1.6 },
+                textAlign: { xs: "center", md: "left" },
+              }}
+            >
+              Мы являемся ведущей юридической фирмой в Бишкеке, предоставляющей
+              широкий спектр юридических услуг для бизнеса и частных лиц. Наша
+              команда опытных юристов и бухгалтеров готова помочь вам в решении
+              любых правовых вопросов.
+            </Typography>
+          </Box>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          style={{ width: "100%" }}
+        >
+          <StatsCard>
+            <CardContent
+              sx={{
+                p: { xs: 2, sm: 3, md: 4 },
+                textAlign: "center",
+                alignItems: "center",
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+              }}
+            >
+              <AboutImage src={aboutImg} alt="" />
+              <Typography
+                sx={{
+                  mb: 2,
+                  fontSize: { xs: "18px", sm: "24px", md: "28px", lg: "32px" },
+                  lineHeight: { xs: 1.2, md: 1.3 },
+                  mt: { xs: 2, sm: 0 },
+                }}
+              >
+                Наши специалисты являются одними из лучших юристов Кыргызстана
+              </Typography>
+            </CardContent>
+          </StatsCard>
+        </motion.div>
       </Stack>
 
       {/* Заголовок второго блока */}
-      <Typography
-        variant="h3"
-        sx={{
-          mb: { xs: 2, sm: 2.5, md: 3 },
-          fontSize: { xs: "20px", sm: "24px", md: "28px" },
-          textAlign: { xs: "center", md: "left" },
-          lineHeight: { xs: 1.2, md: 1.3 },
-        }}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        Мы специализируемся в следующих областях корпоративного права:
-      </Typography>
+        <Typography
+          variant="h3"
+          sx={{
+            mb: { xs: 2, sm: 2.5, md: 3 },
+            fontSize: { xs: "20px", sm: "24px", md: "28px" },
+            textAlign: { xs: "center", md: "left" },
+            lineHeight: { xs: 1.2, md: 1.3 },
+          }}
+        >
+          Мы специализируемся в следующих областях корпоративного права:
+        </Typography>
+      </motion.div>
 
       {/* Второй блок */}
       <Stack
@@ -180,50 +204,58 @@ export const About = () => {
         alignItems={{ xs: "center", lg: "flex-start" }}
         gap={{ xs: 3, sm: 4, lg: "27px" }}
       >
-        <StatsCard sx={{ order: { xs: 2, lg: 1 } }}>
-          <CardContent
-            sx={{
-              justifyContent: { xs: "center", md: "flex-start" },
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              alignItems: "center",
-              p: { xs: 2, sm: 2.5, md: 3 },
-              width: { xs: "100%", lg: "720px" },
-              mt: { xs: 2, md: "40px" },
-            }}
-          >
-            <Typography
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          style={{ width: "100%" }}
+        >
+          <StatsCard sx={{ order: { xs: 2, lg: 1 } }}>
+            <CardContent
               sx={{
-                mb: 2,
-                fontSize: { xs: "18px", sm: "24px", md: "28px", lg: "32px" },
-                lineHeight: "normal",
-                width: { xs: "100%", md: "340px" },
-                textAlign: { xs: "center", md: "left" },
+                justifyContent: { xs: "center", md: "flex-start" },
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+                alignItems: "center",
+                p: { xs: 2, sm: 2.5, md: 3 },
+                width: { xs: "100%", lg: "720px" },
+                mt: { xs: 2, md: "40px" },
               }}
             >
-              В нашей команде работают лучшие юристы страны
-            </Typography>
-            <Box
-              sx={{
-                display: { xs: "none", sm: "block" },
-                position: "relative",
-                width: "100%",
-                overflow: "hidden",
-              }}
-            >
-              <AboutImageStatue src={aboutStatue} alt="" />
-            </Box>
-            <AboutImageStatue
-              src={aboutStatue}
-              alt=""
-              sx={{
-                bottom: { xs: -15, sm: -20, md: -26 },
-                left: { xs: -60, sm: -80, md: -120 },
-                position: "relative",
-              }}
-            />
-          </CardContent>
-        </StatsCard>
+              <Typography
+                sx={{
+                  mb: 2,
+                  fontSize: { xs: "18px", sm: "24px", md: "28px", lg: "32px" },
+                  lineHeight: "normal",
+                  width: { xs: "100%", md: "340px" },
+                  textAlign: { xs: "center", md: "left" },
+                }}
+              >
+                В нашей команде работают лучшие юристы страны
+              </Typography>
+              <Box
+                sx={{
+                  display: { xs: "none", sm: "block" },
+                  position: "relative",
+                  width: "100%",
+                  overflow: "hidden",
+                }}
+              >
+                <AboutImageStatue src={aboutStatue} alt="" />
+              </Box>
+              <AboutImageStatue
+                src={aboutStatue}
+                alt=""
+                sx={{
+                  bottom: { xs: -15, sm: -20, md: -26 },
+                  left: { xs: -60, sm: -80, md: -120 },
+                  position: "relative",
+                }}
+              />
+            </CardContent>
+          </StatsCard>
+        </motion.div>
 
         <Box
           sx={{
@@ -232,17 +264,29 @@ export const About = () => {
           }}
         >
           {services.map((service, index) => (
-            <ServiceCard key={index}>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontSize: { xs: "14px", sm: "15px", md: "16px" },
-                  lineHeight: { xs: 1.3, md: 1.4 },
-                }}
-              >
-                {service.title}
-              </Typography>
-            </ServiceCard>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                delay: 0.2 + index * 0.15,
+                ease: "easeOut",
+              }}
+            >
+              <ServiceCard>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontSize: { xs: "14px", sm: "15px", md: "16px" },
+                    lineHeight: { xs: 1.3, md: 1.4 },
+                  }}
+                >
+                  {service.title}
+                </Typography>
+              </ServiceCard>
+            </motion.div>
           ))}
         </Box>
       </Stack>

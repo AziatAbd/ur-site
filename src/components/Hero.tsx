@@ -3,6 +3,7 @@ import { AppButton } from "./UI/AppButton"
 import heroImg from "../assets/images/hero/hero.png"
 import heroItemImg from "../assets/images/hero/bg-hero-item.png"
 import heroStatueImg from "../assets/images/hero/hero-statue.png"
+import { motion } from "framer-motion"
 
 const HeroSection = styled(Box)(({ theme }) => ({
   display: "grid",
@@ -103,66 +104,90 @@ export const Hero = () => {
   return (
     <HeroSection>
       <Container>
-        <Typography
-          variant="h1"
-          sx={{
-            color: "#fff",
-            mb: { xs: 2, sm: 2.5, md: 3 },
-            textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-            fontSize: { xs: "24px", sm: "32px", md: "38px", lg: "46px" },
-            lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 },
-            zIndex: 10000,
-            position: "relative",
-            textAlign: { xs: "center", md: "left" },
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          ПРОФЕССИОНАЛЬНЫЕ ЮРИДИЧЕСКИЕ УСЛУГИ В БИШКЕКЕ
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            color: "#fff",
-            mb: { xs: 3, sm: 3.5, md: 4 },
-            opacity: 0.95,
-            maxWidth: { xs: "100%", md: "520px" },
-            zIndex: 10000,
-            position: "relative",
-            fontSize: { xs: "14px", sm: "15px", md: "16px" },
-            lineHeight: { xs: 1.4, sm: 1.5, md: 1.6 },
-            textAlign: { xs: "center", md: "left" },
-          }}
-        >
-          Мы являемся ведущей юридической фирмой в Бишкеке, предоставляющей
-          широкий спектр юридических услуг для бизнеса и частных лиц. Наша
-          команда опытных юристов и бухгалтеров готова помочь вам в решении
-          любых правовых вопросов.
-        </Typography>
-        <Box
-          sx={{
-            width: { xs: "100%", md: "auto" },
-            display: "flex",
-            justifyContent: { xs: "center", md: "flex-start" },
-          }}
-        >
-          <AppButton
-            variant="contained"
-            size="large"
+          <Typography
+            variant="h1"
             sx={{
-              background: "#131017 !important",
-              p: { xs: "12px 24px", sm: "14px 28px", md: "16px 32px" },
-              fontSize: { xs: "14px", sm: "15px", md: "16px" },
-              minWidth: { xs: "200px", sm: "220px", md: "auto" },
+              color: "#fff",
+              mb: { xs: 2, sm: 2.5, md: 3 },
+              textShadow: "0 2px 4px rgba(0,0,0,0.3)",
+              fontSize: { xs: "24px", sm: "32px", md: "38px", lg: "46px" },
+              lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 },
+              zIndex: 10000,
+              position: "relative",
+              textAlign: { xs: "center", md: "left" },
             }}
           >
-            ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
-          </AppButton>
-        </Box>
+            ПРОФЕССИОНАЛЬНЫЕ ЮРИДИЧЕСКИЕ УСЛУГИ В БИШКЕКЕ
+          </Typography>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        >
+          <Typography
+            variant="body1"
+            sx={{
+              color: "#fff",
+              mb: { xs: 3, sm: 3.5, md: 4 },
+              opacity: 0.95,
+              maxWidth: { xs: "100%", md: "520px" },
+              zIndex: 10000,
+              position: "relative",
+              fontSize: { xs: "14px", sm: "15px", md: "16px" },
+              lineHeight: { xs: 1.4, sm: 1.5, md: 1.6 },
+              textAlign: { xs: "center", md: "left" },
+            }}
+          >
+            Мы являемся ведущей юридической фирмой в Бишкеке, предоставляющей
+            широкий спектр юридических услуг для бизнеса и частных лиц. Наша
+            команда опытных юристов и бухгалтеров готова помочь вам в решении
+            любых правовых вопросов.
+          </Typography>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+        >
+          <Box
+            sx={{
+              width: { xs: "100%", md: "auto" },
+              display: "flex",
+              justifyContent: { xs: "center", md: "flex-start" },
+            }}
+          >
+            <AppButton
+              variant="contained"
+              size="large"
+              sx={{
+                background: "#131017 !important",
+                p: { xs: "12px 24px", sm: "14px 28px", md: "16px 32px" },
+                fontSize: { xs: "14px", sm: "15px", md: "16px" },
+                minWidth: { xs: "200px", sm: "220px", md: "auto" },
+              }}
+            >
+              ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
+            </AppButton>
+          </Box>
+        </motion.div>
         <BackgroundImage src={heroItemImg} />
         <StatueImage src={heroStatueImg} />
       </Container>
-      <ImageContainer>
-        <StyledImg src={heroImg} alt="Hero image" />
-      </ImageContainer>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+      >
+        <ImageContainer>
+          <StyledImg src={heroImg} alt="Hero image" />
+        </ImageContainer>
+      </motion.div>
     </HeroSection>
   )
 }

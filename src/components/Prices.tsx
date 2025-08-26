@@ -1,6 +1,7 @@
 import { Box, Card, CardContent, Grid, Typography, styled } from "@mui/material"
 import { AppButton } from "./UI/AppButton"
 import priceStatueImg from "../assets/images/price/price-statue.png"
+import { motion } from "framer-motion"
 
 const PricingCard = styled(Card)(({ theme }) => ({
   background: theme.palette.secondary.main,
@@ -94,34 +95,48 @@ export const Prices = () => {
         background: `linear-gradient(to right, #CA8300 0%, #EDCB67 100%)`,
       }}
     >
-      <Typography
-        variant="h2"
-        sx={{
-          mb: { xs: 1.5, sm: 2, md: 2 },
-          color: "#fff",
-          fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
-          textAlign: { xs: "center", md: "left" },
-          lineHeight: { xs: 1.2, md: 1.3 },
-        }}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        Пакеты услуг и цены
-      </Typography>
-      <Typography
-        variant="body1"
-        sx={{
-          mb: { xs: 4, sm: 5, md: 6 },
-          color: "#fff",
-          opacity: 0.9,
-          maxWidth: { xs: "100%", md: "800px" },
-          fontSize: { xs: "14px", sm: "15px", md: "16px" },
-          lineHeight: { xs: 1.4, md: 1.6 },
-          textAlign: { xs: "center", md: "left" },
-        }}
+        <Typography
+          variant="h2"
+          sx={{
+            mb: { xs: 1.5, sm: 2, md: 2 },
+            color: "#fff",
+            fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
+            textAlign: { xs: "center", md: "left" },
+            lineHeight: { xs: 1.2, md: 1.3 },
+          }}
+        >
+          Пакеты услуг и цены
+        </Typography>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
       >
-        Мы предлагаем несколько пакетов услуг, чтобы удовлетворить потребности
-        вашего бизнеса. Вы можете выбрать подходящий пакет или связаться с нами
-        для разработки индивидуального предложения.
-      </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            mb: { xs: 4, sm: 5, md: 6 },
+            color: "#fff",
+            opacity: 0.9,
+            maxWidth: { xs: "100%", md: "800px" },
+            fontSize: { xs: "14px", sm: "15px", md: "16px" },
+            lineHeight: { xs: 1.4, md: 1.6 },
+            textAlign: { xs: "center", md: "left" },
+          }}
+        >
+          Мы предлагаем несколько пакетов услуг, чтобы удовлетворить потребности
+          вашего бизнеса. Вы можете выбрать подходящий пакет или связаться с
+          нами для разработки индивидуального предложения.
+        </Typography>
+      </motion.div>
 
       <Grid
         container
@@ -132,70 +147,89 @@ export const Prices = () => {
       >
         {servicePackages.map((el, index) => (
           <Grid key={index}>
-            <PricingCard>
-              <CardContent
-                sx={{
-                  py: { xs: 3, sm: 3.5, md: 4 },
-                  px: { xs: 2, sm: 2.5, md: 3 },
-                  textAlign: "center",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <Typography
-                  variant="h6"
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.7,
+                delay: 0.3 + index * 0.15,
+                ease: "easeOut",
+              }}
+            >
+              <PricingCard>
+                <CardContent
                   sx={{
-                    mb: { xs: 1.5, sm: 2 },
-                    fontSize: { xs: "16px", sm: "18px", md: "20px" },
+                    py: { xs: 3, sm: 3.5, md: 4 },
+                    px: { xs: 2, sm: 2.5, md: 3 },
+                    textAlign: "center",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
                   }}
                 >
-                  {el.title}
-                </Typography>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    mb: { xs: 2, sm: 2.5, md: 3 },
-                    fontSize: { xs: "18px", sm: "20px", md: "24px" },
-                    fontWeight: 600,
-                  }}
-                >
-                  {el.price}
-                </Typography>
-                <Box sx={{ flexGrow: 1, mb: { xs: 2, sm: 3, md: 4 } }}>
-                  {el.features.map((feature, featureIndex) => (
-                    <Typography
-                      key={featureIndex}
-                      variant="body2"
-                      sx={{
-                        mb: { xs: 1, sm: 1.5 },
-                        fontSize: { xs: "12px", sm: "13px", md: "14px" },
-                        lineHeight: { xs: 1.3, md: 1.4 },
-                        textAlign: "left",
-                      }}
-                    >
-                      • {feature}
-                    </Typography>
-                  ))}
-                </Box>
-                <AppButton
-                  variant="contained"
-                  fullWidth
-                  color="primary"
-                  sx={{
-                    fontSize: { xs: "12px", sm: "13px", md: "14px" },
-                    py: { xs: 1, sm: 1.2, md: 1.5 },
-                    mt: "auto",
-                  }}
-                >
-                  ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
-                </AppButton>
-              </CardContent>
-            </PricingCard>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      mb: { xs: 1.5, sm: 2 },
+                      fontSize: { xs: "16px", sm: "18px", md: "20px" },
+                    }}
+                  >
+                    {el.title}
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      mb: { xs: 2, sm: 2.5, md: 3 },
+                      fontSize: { xs: "18px", sm: "20px", md: "24px" },
+                      fontWeight: 600,
+                    }}
+                  >
+                    {el.price}
+                  </Typography>
+                  <Box sx={{ flexGrow: 1, mb: { xs: 2, sm: 3, md: 4 } }}>
+                    {el.features.map((feature, featureIndex) => (
+                      <Typography
+                        key={featureIndex}
+                        variant="body2"
+                        sx={{
+                          mb: { xs: 1, sm: 1.5 },
+                          fontSize: { xs: "12px", sm: "13px", md: "14px" },
+                          lineHeight: { xs: 1.3, md: 1.4 },
+                          textAlign: "left",
+                        }}
+                      >
+                        • {feature}
+                      </Typography>
+                    ))}
+                  </Box>
+                  <AppButton
+                    variant="contained"
+                    fullWidth
+                    color="primary"
+                    sx={{
+                      fontSize: { xs: "12px", sm: "13px", md: "14px" },
+                      py: { xs: 1, sm: 1.2, md: 1.5 },
+                      mt: "auto",
+                    }}
+                  >
+                    ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
+                  </AppButton>
+                </CardContent>
+              </PricingCard>
+            </motion.div>
           </Grid>
         ))}
       </Grid>
-      <PriceStatusImage src={priceStatueImg} alt="" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+        style={{ position: "absolute", right: 0, bottom: 0 }}
+      >
+        <PriceStatusImage src={priceStatueImg} alt="" />
+      </motion.div>
     </Box>
   )
 }

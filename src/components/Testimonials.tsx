@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { motion } from "framer-motion"
 
 import "swiper/css"
 
@@ -42,18 +43,25 @@ const TestimonialContainer = styled(Box)(({ theme }) => ({
 export const Testimonials = () => {
   return (
     <Box sx={{ py: { xs: 4, sm: 6, md: 8 } }}>
-      <Typography
-        variant="h2"
-        sx={{
-          textAlign: "center",
-          mb: { xs: 4, sm: 5, md: 6 },
-          fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
-          lineHeight: { xs: 1.2, md: 1.3 },
-          px: { xs: 2, sm: 3 },
-        }}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        Кейсы которые говорят за нас
-      </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            textAlign: "center",
+            mb: { xs: 4, sm: 5, md: 6 },
+            fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
+            lineHeight: { xs: 1.2, md: 1.3 },
+            px: { xs: 2, sm: 3 },
+          }}
+        >
+          Кейсы которые говорят за нас
+        </Typography>
+      </motion.div>
 
       <TestimonialContainer>
         <Swiper
@@ -73,54 +81,66 @@ export const Testimonials = () => {
             },
           }}
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((item, idx) => (
             <SwiperSlide key={item}>
-              <TestimonialCard>
-                <CardContent
-                  sx={{
-                    px: { xs: 3, sm: 3.5, md: 4 },
-                    py: { xs: 3, sm: 3.5, md: 4 },
-                    overflow: "visible",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Avatar
-                    title="Aziat"
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.2 + idx * 0.1,
+                  ease: "easeOut",
+                }}
+                style={{ height: "100%" }}
+              >
+                <TestimonialCard>
+                  <CardContent
                     sx={{
-                      mx: "auto",
-                      width: { xs: "50px", sm: "55px", md: "60px" },
-                      height: { xs: "50px", sm: "55px", md: "60px" },
-                      mb: { xs: 1.5, sm: 2, md: 2 },
-                    }}
-                  />
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      mb: { xs: 2, sm: 2.5, md: 3 },
-                      fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-                      lineHeight: { xs: 1.4, sm: 1.5, md: 1.6 },
-                      flexGrow: 1,
-                      textAlign: "center",
+                      px: { xs: 3, sm: 3.5, md: 4 },
+                      py: { xs: 3, sm: 3.5, md: 4 },
+                      overflow: "visible",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
                     }}
                   >
-                    «EBITDA выросла на 47% за 9 месяцев. Наша команда смогла
-                    сосредоточиться на росте, а не на хаосе. Это был прорыв.»
-                  </Typography>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{
-                      fontWeight: 600,
-                      textAlign: "center",
-                      fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" },
-                      mt: "auto",
-                    }}
-                  >
-                    — CEO, FMCG-компания
-                  </Typography>
-                </CardContent>
-              </TestimonialCard>
+                    <Avatar
+                      title="Aziat"
+                      sx={{
+                        mx: "auto",
+                        width: { xs: "50px", sm: "55px", md: "60px" },
+                        height: { xs: "50px", sm: "55px", md: "60px" },
+                        mb: { xs: 1.5, sm: 2, md: 2 },
+                      }}
+                    />
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        mb: { xs: 2, sm: 2.5, md: 3 },
+                        fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                        lineHeight: { xs: 1.4, sm: 1.5, md: 1.6 },
+                        flexGrow: 1,
+                        textAlign: "center",
+                      }}
+                    >
+                      «EBITDA выросла на 47% за 9 месяцев. Наша команда смогла
+                      сосредоточиться на росте, а не на хаосе. Это был прорыв.»
+                    </Typography>
+                    <Typography
+                      variant="subtitle1"
+                      sx={{
+                        fontWeight: 600,
+                        textAlign: "center",
+                        fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" },
+                        mt: "auto",
+                      }}
+                    >
+                      — CEO, FMCG-компания
+                    </Typography>
+                  </CardContent>
+                </TestimonialCard>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
