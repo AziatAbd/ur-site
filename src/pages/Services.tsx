@@ -6,6 +6,76 @@ import { NavLink } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { ContactForm } from "../components/UI/ContactForm"
 
+// Массив IT услуг
+const itServices = [
+  {
+    id: 1,
+    title: "Веб-разработка",
+    description: "Создание современных сайтов и веб-приложений",
+    services: [
+      "Корпоративные сайты и лендинги",
+      "Интернет-магазины и e-commerce",
+      "Веб-приложения и SPA",
+    ],
+    link: "/services/web-development",
+  },
+  {
+    id: 2,
+    title: "Мобильная разработка",
+    description: "Приложения для iOS и Android",
+    services: [
+      "Нативные iOS приложения",
+      "Android приложения",
+      "Кроссплатформенные решения",
+    ],
+    link: "/services/mobile-development",
+  },
+  {
+    id: 3,
+    title: "Графический дизайн",
+    description: "Визуальное оформление и брендинг",
+    services: [
+      "Логотип и фирменный стиль",
+      "UI/UX дизайн интерфейсов",
+      "Печатная и рекламная продукция",
+    ],
+    link: "/services/graphic-design",
+  },
+  {
+    id: 4,
+    title: "IT-консалтинг",
+    description: "Экспертные консультации и аудит",
+    services: [
+      "Техническое консультирование",
+      "Аудит IT-инфраструктуры",
+      "Цифровая трансформация бизнеса",
+    ],
+    link: "/services/it-consulting",
+  },
+  {
+    id: 5,
+    title: "Автоматизация бизнеса",
+    description: "CRM, ERP и интеграционные решения",
+    services: [
+      "Внедрение CRM систем",
+      "ERP системы учета",
+      "API интеграции и автоматизация",
+    ],
+    link: "/services/business-automation",
+  },
+  {
+    id: 6,
+    title: "Digital-маркетинг",
+    description: "Продвижение в цифровой среде",
+    services: [
+      "SEO оптимизация сайтов",
+      "Контекстная реклама",
+      "Настройка аналитики",
+    ],
+    link: "/services/digital-marketing",
+  },
+]
+
 const StyledServices = styled(Box)(({ theme }) => ({
   background: "#282828",
   margin: "0 80px 60px",
@@ -33,29 +103,64 @@ const ListContainer = styled(Box)(({ theme }) => ({
   background: "#282828",
   borderRadius: "4px",
   padding: "16px 19px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  minHeight: "200px",
 
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    minHeight: "auto",
+  },
 }))
 
 const ListTitle = styled(Typography)({
   fontWeight: "bold",
+  marginBottom: "12px",
+  color: "#fff",
+})
+
+const ServiceDescription = styled(Typography)({
+  color: "#ccc",
+  fontSize: "14px",
+  marginBottom: "16px",
+})
+
+const ServicesList = styled("ul")({
+  color: "#fff",
+  paddingLeft: "16px",
+  margin: "0 0 20px 0",
+
+  "& li": {
+    marginBottom: "8px",
+    fontSize: "16px",
+    lineHeight: "1.4",
+  },
 })
 
 const LinkStyle = styled(NavLink)({
   display: "flex",
   alignItems: "center",
-
-  color: `#CA8300`,
+  gap: "8px",
+  color: "#CA8300",
   textDecoration: "none",
-  fontSize: "20px",
+  fontSize: "16px",
+  fontWeight: "500",
+  marginTop: "auto",
+
+  "&:hover": {
+    color: "#E6940D",
+  },
 })
 
 const Services = () => {
+  // Берем первые 6 услуг для отображения
+  const displayServices = itServices.slice(0, 6)
+
   return (
     <Stack>
       <Prices />
       <StyledServices>
-        <ServiceImage src={serviceImage} alt="service image" />
+        <ServiceImage src={serviceImage} alt="IT services" />
         <Box>
           <Typography variant="h2" mb={2}>
             Бухгалтерские услуги
@@ -79,23 +184,36 @@ const Services = () => {
       <Stack
         direction={{ xs: "column", md: "row" }}
         px={{ xs: "20px", md: "140px" }}
-        gap={{ xs: "20px", md: "64px" }}
+        gap={{ xs: "20px", md: "32px" }}
         mb={{ xs: "30px", md: "90px" }}
+        flexWrap="wrap"
       >
-        {[1, 2, 3, 4].map(() => (
-          <ListContainer>
-            <ListTitle>Аутсорсинг бухгалтерского учета</ListTitle>
+        {displayServices.map((service) => (
+          <Box
+            key={service.id}
+            flex={{
+              xs: "1 1 100%",
+              md: "1 1 calc(50% - 16px)",
+              lg: "1 1 calc(33.333% - 22px)",
+            }}
+          >
+            <ListContainer>
+              <div>
+                <ListTitle variant="h6">{service.title}</ListTitle>
+                <ServiceDescription>{service.description}</ServiceDescription>
 
-            <ul>
-              <li>Постановка и ведение бухгалтерского учета</li>
-              <li>Функция главного бухгалтера</li>
-              <li>Систематический контроль бухгалтерского учета</li>
-            </ul>
+                <ServicesList>
+                  {service.services.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ServicesList>
+              </div>
 
-            <LinkStyle to="/services">
-              Подробнее <ArrowRight />
-            </LinkStyle>
-          </ListContainer>
+              <LinkStyle to={service.link}>
+                Подробнее <ArrowRight size={18} />
+              </LinkStyle>
+            </ListContainer>
+          </Box>
         ))}
       </Stack>
 
