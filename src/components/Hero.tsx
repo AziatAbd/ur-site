@@ -117,7 +117,7 @@ export const Hero = () => {
               textShadow: "0 2px 4px rgba(0,0,0,0.3)",
               fontSize: { xs: "24px", sm: "32px", md: "38px", lg: "46px" },
               lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 },
-              zIndex: 10000,
+              zIndex: 1,
               position: "relative",
               textAlign: { xs: "center", md: "left" },
             }}
@@ -137,7 +137,7 @@ export const Hero = () => {
               mb: { xs: 3, sm: 3.5, md: 4 },
               opacity: 0.95,
               maxWidth: { xs: "100%", md: "520px" },
-              zIndex: 10000,
+              zIndex: 1,
               position: "relative",
               fontSize: { xs: "14px", sm: "15px", md: "16px" },
               lineHeight: { xs: 1.4, sm: 1.5, md: 1.6 },

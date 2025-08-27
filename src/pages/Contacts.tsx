@@ -20,8 +20,15 @@ const Contacts = () => {
   return (
     <div>
       <Stack px={{ xs: "20px", md: "80px" }}>
-        <Typography variant="h2">Контакты</Typography>
-        <Box display="flex" justifyContent="space-between" mb="40px">
+        <Typography variant="h2" fontSize={{ xs: "24px", md: "40px" }}>
+          Контакты
+        </Typography>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          mb="40px"
+          flexWrap="wrap"
+        >
           {contacts.map((item) => (
             <Box>
               <Typography color="#EDCB67" mb={2}>

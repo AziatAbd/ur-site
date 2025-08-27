@@ -6,7 +6,7 @@ const StyledButton = styled(Button)(() => ({
   padding: "10px",
   lineHeight: "normal",
   position: "relative",
-  zIndex: 10000,
+  zIndex: 1,
 
   "&.MuiButton-text": {
     ":hover": {
