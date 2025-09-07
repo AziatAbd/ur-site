@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-Light.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bebas";
+  src: url("./assets/fonts/Bebas-Neue-Cyrillic.ttf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Gilroy", sans-serif;
 }
 
 body {
@@ -16,4 +16,12 @@ body {
   ul {
     padding: 19px;
   }
+}
+
+.MuiTypography-root {
+  font-family: "Gilroy", sans-serif !important;
+}
+
+h1 {
+  font-family: "Bebas", sans-serif !important;
 }

@@ -120,6 +120,7 @@ export const Hero = () => {
               zIndex: 1,
               position: "relative",
               textAlign: { xs: "center", md: "left" },
+              fontFamily: '"Bebas Neue", sans-serif',
             }}
           >
             ПРОФЕССИОНАЛЬНЫЕ ЮРИДИЧЕСКИЕ УСЛУГИ В БИШКЕКЕ
