@@ -151,13 +151,14 @@ export const Prices = () => {
         {servicePackages.map((el, index) => (
           <Grid
             key={index}
-            item // Добавлено для правильной работы Grid
-            xs={12} // Добавлено для адаптивности
-            sm={6} // Добавлено для планшетов
-            md={6} // Добавлено для десктопа
-            lg={3} // Добавлено для больших экранов
             sx={{
-              display: "flex", // Добавлено для flex-контейнера
+              width: {
+                xs: "100%",
+                sm: "calc(50% - 12px)",
+                md: "calc(50% - 16px)",
+                lg: "calc(25% - 18px)",
+              },
+              display: "flex",
             }}
           >
             <motion.div
