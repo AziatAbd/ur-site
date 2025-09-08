@@ -108,7 +108,7 @@ const ListContainer = styled(Box)(({ theme }) => ({
   justifyContent: "space-between",
   height: "100%", // Добавлено для одинаковой высоты
   minHeight: "280px", // Увеличена минимальная высота
-
+  width: "100%",
   [theme.breakpoints.down("sm")]: {
     minHeight: "250px", // Минимальная высота для мобильных устройств
   },
@@ -198,11 +198,7 @@ const Services = () => {
           <Box
             key={service.id}
             sx={{
-              width: {
-                xs: "100%",
-                md: "calc(50% - 16px)",
-                lg: "calc(33.333% - 22px)",
-              },
+              width: "100%",
               display: "flex",
             }}
           >
