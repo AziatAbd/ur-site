@@ -9,6 +9,8 @@ const PricingCard = styled(Card)(({ theme }) => ({
   height: "100%",
   border: `2px solid transparent`,
   transition: "all 0.3s ease",
+  display: "flex", // Добавлено для flex-контейнера
+  flexDirection: "column", // Добавлено для вертикального выравнивания
   "&:hover": {
     border: `2px solid ${theme.palette.primary.main}`,
     transform: "translateY(-2px)",
@@ -142,11 +144,22 @@ export const Prices = () => {
         container
         sx={{
           justifyContent: { xs: "center", md: "flex-start" },
+          alignItems: "stretch", // Добавлено для растягивания карточек
         }}
         spacing={{ xs: 2, sm: 3, md: 4 }}
       >
         {servicePackages.map((el, index) => (
-          <Grid key={index} width={{ xs: "100%", md: "415px" }}>
+          <Grid
+            key={index}
+            item // Добавлено для правильной работы Grid
+            xs={12} // Добавлено для адаптивности
+            sm={6} // Добавлено для планшетов
+            md={6} // Добавлено для десктопа
+            lg={3} // Добавлено для больших экранов
+            sx={{
+              display: "flex", // Добавлено для flex-контейнера
+            }}
+          >
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -156,6 +169,7 @@ export const Prices = () => {
                 delay: 0.3 + index * 0.15,
                 ease: "easeOut",
               }}
+              style={{ width: "100%" }} // Добавлено для полной ширины
             >
               <PricingCard>
                 <CardContent

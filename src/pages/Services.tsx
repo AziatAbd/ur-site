@@ -6,7 +6,6 @@ import { NavLink } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { ContactForm } from "../components/UI/ContactForm"
 
-// Массив IT услуг
 const itServices = [
   {
     id: 1,
@@ -106,10 +105,11 @@ const ListContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  minHeight: "200px",
+  height: "100%", // Добавлено для одинаковой высоты
+  minHeight: "280px", // Увеличена минимальная высота
 
   [theme.breakpoints.down("sm")]: {
-    minHeight: "auto",
+    minHeight: "250px", // Минимальная высота для мобильных устройств
   },
 }))
 
@@ -129,6 +129,7 @@ const ServicesList = styled("ul")({
   color: "#fff",
   paddingLeft: "16px",
   margin: "0 0 20px 0",
+  flex: 1, // Добавлено для растяжения списка
 
   "& li": {
     marginBottom: "8px",
@@ -190,6 +191,7 @@ const Services = () => {
         gap={{ xs: "20px", md: "32px" }}
         mb={{ xs: "30px", md: "90px" }}
         flexWrap="wrap"
+        alignItems="stretch" // Добавлено для растягивания дочерних элементов
       >
         {displayServices.map((service) => (
           <Box
@@ -199,6 +201,7 @@ const Services = () => {
               md: "1 1 calc(50% - 16px)",
               lg: "1 1 calc(33.333% - 22px)",
             }}
+            display="flex" // Добавлено для flex-контейнера
           >
             <ListContainer>
               <div>

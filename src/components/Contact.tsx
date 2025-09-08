@@ -10,7 +10,7 @@ export const Contact = () => {
       label: "Instagram",
     },
     {
-      icon: <MessageCircle size={20} />,
+      icon: <MessageCircle size={22} />,
       label: "WhatsApp",
     },
     {
