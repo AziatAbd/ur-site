@@ -198,7 +198,6 @@ const Services = () => {
           <Box
             key={service.id}
             sx={{
-              width: "100%",
               display: "flex",
             }}
           >
