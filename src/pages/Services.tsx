@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { ContactForm } from "../components/UI/ContactForm"
 
+// Массив IT услуг
 const itServices = [
   {
     id: 1,
@@ -196,12 +197,14 @@ const Services = () => {
         {displayServices.map((service) => (
           <Box
             key={service.id}
-            flex={{
-              xs: "1 1 100%",
-              md: "1 1 calc(50% - 16px)",
-              lg: "1 1 calc(33.333% - 22px)",
+            sx={{
+              width: {
+                xs: "100%",
+                md: "calc(50% - 16px)",
+                lg: "calc(33.333% - 22px)",
+              },
+              display: "flex",
             }}
-            display="flex" // Добавлено для flex-контейнера
           >
             <ListContainer>
               <div>
