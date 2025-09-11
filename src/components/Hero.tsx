@@ -116,11 +116,13 @@ export const Hero = () => {
               mb: { xs: 2, sm: 2.5, md: 3 },
               textShadow: "0 2px 4px rgba(0,0,0,0.3)",
               fontSize: { xs: "24px", sm: "32px", md: "38px", lg: "46px" },
-              lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 },
+              lineHeight: 1,
               zIndex: 1,
               position: "relative",
               textAlign: { xs: "center", md: "left" },
-              fontFamily: '"Bebas Neue", sans-serif',
+              fontFamily: "Bebas Neue",
+              transform: "scaleY(1.5)",
+              letterSpacing: "4px",
             }}
           >
             ПРОФЕССИОНАЛЬНЫЕ ЮРИДИЧЕСКИЕ УСЛУГИ В БИШКЕКЕ
