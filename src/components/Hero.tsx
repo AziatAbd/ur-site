@@ -120,8 +120,6 @@ export const Hero = () => {
               zIndex: 1,
               position: "relative",
               textAlign: { xs: "center", md: "left" },
-              fontFamily: "Bebas Neue",
-              transform: "scaleY(1.5)",
               letterSpacing: "4px",
             }}
           >

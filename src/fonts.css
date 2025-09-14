@@ -11,3 +11,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Druk";
+  src: url("./assets/fonts/DrukCyr-Medium.woff") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}

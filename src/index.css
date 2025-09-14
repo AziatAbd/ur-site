@@ -18,7 +18,6 @@ body {
 
 span,
 p,
-h2,
 h3,
 h4,
 h5,
@@ -26,6 +25,9 @@ h6 {
   font-family: "Gilroy", sans-serif !important;
 }
 
-h1 {
-  font-family: "Bebas", sans-serif !important;
+h1,
+h2 {
+  font-family: "Druk", sans-serif !important;
+  letter-spacing: "4px !important";
+  font-weight: "400 !important";
 }
