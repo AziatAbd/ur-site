@@ -121,6 +121,7 @@ export const Hero = () => {
               position: "relative",
               textAlign: { xs: "center", md: "left" },
               letterSpacing: "4px",
+              transform: "scaleY(1.3)",
             }}
           >
             ПРОФЕССИОНАЛЬНЫЕ ЮРИДИЧЕСКИЕ УСЛУГИ В БИШКЕКЕ

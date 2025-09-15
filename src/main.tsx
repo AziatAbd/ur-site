@@ -31,14 +31,13 @@ const theme = createTheme({
     fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontSize: "3.5rem",
-      fontWeight: 700,
+      fontWeight: 400,
       lineHeight: 1.2,
     },
     h2: {
       fontSize: "2.5rem",
       fontWeight: 400,
       lineHeight: 1.3,
-      letterSpacing: "4px",
     },
     h3: {
       fontSize: "1.8rem",
