@@ -73,8 +73,6 @@ const SubmitButton = styled(Button)(() => ({
   marginTop: "24px",
   borderRadius: "6px",
   padding: "12px 24px",
-  width: "100%",
-  maxWidth: "300px",
   "&:hover": {
     background: "linear-gradient(90deg, #FBBF24 0%, #FCD34D 100%)",
   },
@@ -117,7 +115,9 @@ export const ContactForm = () => {
 
         <TextareaField fullWidth label="Ваш вопрос" multiline rows={4} />
 
-        <SubmitButton>ОТПРАВИТЬ ЗАЯВКУ</SubmitButton>
+        <SubmitButton sx={{ color: "white" }} fullWidth>
+          ОТПРАВИТЬ ЗАЯВКУ
+        </SubmitButton>
       </LeftBlock>
 
       <BgLines>

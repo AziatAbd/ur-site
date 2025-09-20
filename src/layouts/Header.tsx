@@ -119,8 +119,7 @@ const Header = () => {
             textAlign: { xs: "right", md: "left" },
           }}
         >
-          <PhoneNumber variant="body2">+996 550 500 600</PhoneNumber>
-          <PhoneNumber variant="body2">+996 550 500 600</PhoneNumber>
+          <PhoneNumber variant="body2">+996 507 055 339</PhoneNumber>
         </Box>
 
         {/* Mobile Navigation Drawer */}

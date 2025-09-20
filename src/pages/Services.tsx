@@ -20,17 +20,6 @@ const itServices = [
     link: "/services/web-development",
   },
   {
-    id: 2,
-    title: "Мобильная разработка",
-    description: "Приложения для iOS и Android",
-    services: [
-      "Нативные iOS приложения",
-      "Android приложения",
-      "Кроссплатформенные решения",
-    ],
-    link: "/services/mobile-development",
-  },
-  {
     id: 3,
     title: "Графический дизайн",
     description: "Визуальное оформление и брендинг",
@@ -62,17 +51,6 @@ const itServices = [
       "API интеграции и автоматизация",
     ],
     link: "/services/business-automation",
-  },
-  {
-    id: 6,
-    title: "Digital-маркетинг",
-    description: "Продвижение в цифровой среде",
-    services: [
-      "SEO оптимизация сайтов",
-      "Контекстная реклама",
-      "Настройка аналитики",
-    ],
-    link: "/services/digital-marketing",
   },
 ]
 
@@ -180,7 +158,11 @@ const Services = () => {
             <li>Помощь в подготовке к налоговым проверкам</li>
           </ul>
 
-          <AppButton variant="contained" fullWidth>
+          <AppButton
+            variant="contained"
+            fullWidth
+            sx={{ fontSize: "20px", textTransform: "uppercase" }}
+          >
             Получить консультацию
           </AppButton>
         </Box>
@@ -191,7 +173,6 @@ const Services = () => {
         px={{ xs: "20px", md: "140px" }}
         gap={{ xs: "20px", md: "32px" }}
         mb={{ xs: "30px", md: "90px" }}
-        flexWrap="wrap"
         alignItems="stretch" // Добавлено для растягивания дочерних элементов
       >
         {displayServices.map((service) => (
@@ -199,6 +180,7 @@ const Services = () => {
             key={service.id}
             sx={{
               display: "flex",
+              width: "100%",
             }}
           >
             <ListContainer>

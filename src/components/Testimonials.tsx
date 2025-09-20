@@ -11,6 +11,27 @@ import { motion } from "framer-motion"
 
 import "swiper/css"
 
+const testimonials = [
+  {
+    id: 1,
+    avatarTitle: "Aziat",
+    text: "«EBITDA выросла на 47% за 9 месяцев. Наша команда смогла сосредоточиться на росте, а не на хаосе. Это был прорыв.»",
+    author: "— CEO, FMCG-компания",
+  },
+  {
+    id: 2,
+    avatarTitle: "Elena",
+    text: "«Сотрудничество с ними позволило нам оптимизировать процессы и снизить издержки почти на 30%.»",
+    author: "— Финансовый директор",
+  },
+  {
+    id: 3,
+    avatarTitle: "Maksat",
+    text: "«Мы получили четкую стратегию развития и смогли привлечь новых инвесторов за рекордные сроки.»",
+    author: "— Основатель стартапа",
+  },
+]
+
 const TestimonialCard = styled(Card)(({ theme }) => ({
   background: `linear-gradient(to right, #CA8300 0%, #EDCB67 100%)`,
   position: "relative",
@@ -81,9 +102,10 @@ export const Testimonials = () => {
             },
           }}
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item, idx) => (
-            <SwiperSlide key={item}>
+          {testimonials.map((item, idx) => (
+            <SwiperSlide key={idx}>
               <motion.div
+                key={item.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -106,7 +128,7 @@ export const Testimonials = () => {
                     }}
                   >
                     <Avatar
-                      title="Aziat"
+                      title={item.avatarTitle}
                       sx={{
                         mx: "auto",
                         width: { xs: "50px", sm: "55px", md: "60px" },
@@ -124,8 +146,7 @@ export const Testimonials = () => {
                         textAlign: "center",
                       }}
                     >
-                      «EBITDA выросла на 47% за 9 месяцев. Наша команда смогла
-                      сосредоточиться на росте, а не на хаосе. Это был прорыв.»
+                      {item.text}
                     </Typography>
                     <Typography
                       variant="subtitle1"
@@ -136,7 +157,7 @@ export const Testimonials = () => {
                         mt: "auto",
                       }}
                     >
-                      — CEO, FMCG-компания
+                      {item.author}
                     </Typography>
                   </CardContent>
                 </TestimonialCard>

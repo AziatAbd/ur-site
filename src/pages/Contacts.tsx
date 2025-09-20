@@ -20,7 +20,7 @@ const Contacts = () => {
   return (
     <div>
       <Stack px={{ xs: "20px", md: "80px" }}>
-        <Typography variant="h2" fontSize={{ xs: "24px", md: "40px" }}>
+        <Typography variant="h2" fontSize={{ xs: "24px", md: "40px" }} mb={4}>
           Контакты
         </Typography>
         <Box

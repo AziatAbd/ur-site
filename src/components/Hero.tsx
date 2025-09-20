@@ -114,17 +114,17 @@ export const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Typography
-            variant="h1"
+            variant="h2"
             sx={{
               color: "#fff",
-              mb: { xs: 2, sm: 2.5, md: 3 },
-              fontSize: { xs: "22px", sm: "32px", md: "38px", lg: "46px" },
-              lineHeight: 1,
               zIndex: 1,
               position: "relative",
-              textAlign: { xs: "center", md: "left" },
               letterSpacing: "2px",
               transform: "scaleY(1.3)",
+              mb: { xs: 2, sm: 3, md: 4 },
+              fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
+              textAlign: { xs: "center", md: "left" },
+              lineHeight: { xs: 1.2, md: 1.3 },
             }}
           >
             ПРОФЕССИОНАЛЬНЫЕ ЮРИДИЧЕСКИЕ УСЛУГИ В БИШКЕКЕ
