@@ -116,15 +116,11 @@ export const Hero = () => {
           <Typography
             variant="h2"
             sx={{
-              color: "#fff",
-              zIndex: 1,
-              position: "relative",
-              letterSpacing: "2px",
-              transform: "scaleY(1.3)",
               mb: { xs: 2, sm: 3, md: 4 },
               fontSize: { xs: "24px", sm: "28px", md: "32px", lg: "36px" },
               textAlign: { xs: "center", md: "left" },
               lineHeight: { xs: 1.2, md: 1.3 },
+              width: { xs: "100%", md: "400px" },
             }}
           >
             ПРОФЕССИОНАЛЬНЫЕ ЮРИДИЧЕСКИЕ УСЛУГИ В БИШКЕКЕ

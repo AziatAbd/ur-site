@@ -28,7 +28,6 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontSize: "3.5rem",
       fontWeight: 500,
