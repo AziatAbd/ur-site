@@ -34,10 +34,11 @@ const PriceStatusImage = styled("img")(({ theme }) => ({
   width: "200px",
   display: "none",
   [theme.breakpoints.up("sm")]: {
-    display: "block",
+    display: "none",
     width: "250px",
   },
-  [theme.breakpoints.up("md")]: {
+  [theme.breakpoints.up("lg")]: {
+    display: "block",
     width: "300px",
   },
 }))
@@ -140,24 +141,24 @@ export const Prices = () => {
         </Typography>
       </motion.div>
 
-      <Grid
-        container
+      <Box
         sx={{
           justifyContent: { xs: "center", md: "flex-start" },
-          alignItems: "stretch", // Добавлено для растягивания карточек
+          alignItems: "stretch",
         }}
-        spacing={{ xs: 2, sm: 3, md: 4 }}
+        display="grid"
+        gridTemplateColumns={{
+          xs: "1fr",
+          sm: "1fr 1fr",
+          md: "1fr 1fr",
+          lg: "1fr 1fr",
+        }}
+        gap={{ xs: 2, sm: 3, md: 4 }}
       >
         {servicePackages.map((el, index) => (
           <Grid
             key={index}
             sx={{
-              width: {
-                xs: "100%",
-                sm: "calc(50% - 12px)",
-                md: "calc(50% - 16px)",
-                lg: "calc(25% - 18px)",
-              },
               display: "flex",
             }}
           >
@@ -235,7 +236,7 @@ export const Prices = () => {
             </motion.div>
           </Grid>
         ))}
-      </Grid>
+      </Box>
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}

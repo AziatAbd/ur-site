@@ -81,7 +81,9 @@ const StatueImage = styled("img")(({ theme }) => ({
   bottom: 0,
   width: "200px",
   opacity: 0.8,
+  display: "none",
   [theme.breakpoints.up("sm")]: {
+    display: "block",
     width: "250px",
     opacity: 0.9,
   },
@@ -100,6 +102,8 @@ const ImageContainer = styled(Box)(({ theme }) => ({
   },
 }))
 
+const MotionBox = motion(Box)
+
 export const Hero = () => {
   return (
     <HeroSection>
@@ -114,13 +118,12 @@ export const Hero = () => {
             sx={{
               color: "#fff",
               mb: { xs: 2, sm: 2.5, md: 3 },
-              textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-              fontSize: { xs: "24px", sm: "32px", md: "38px", lg: "46px" },
+              fontSize: { xs: "22px", sm: "32px", md: "38px", lg: "46px" },
               lineHeight: 1,
               zIndex: 1,
               position: "relative",
               textAlign: { xs: "center", md: "left" },
-              letterSpacing: "4px",
+              letterSpacing: "2px",
               transform: "scaleY(1.3)",
             }}
           >
@@ -147,15 +150,19 @@ export const Hero = () => {
             }}
           >
             Мы являемся ведущей юридической фирмой в Бишкеке, предоставляющей
-            широкий спектр юридических услуг для бизнеса и частных лиц. Наша
-            команда опытных юристов и бухгалтеров готова помочь вам в решении
-            любых правовых вопросов.
+            широкий спектр юридических услуг для бизнеса и частных лиц.
+            <Box component="br" sx={{ display: { xs: "block", md: "none" } }} />
+            Наша команда опытных юристов и бухгалтеров готова помочь вам в
+            решении любых правовых вопросов.
           </Typography>
         </motion.div>
-        <motion.div
+        <MotionBox
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+          sx={{
+            mx: { xs: "auto", md: 0 },
+          }}
         >
           <Box
             sx={{
@@ -177,7 +184,7 @@ export const Hero = () => {
               ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
             </AppButton>
           </Box>
-        </motion.div>
+        </MotionBox>
         <BackgroundImage src={heroItemImg} />
         <StatueImage src={heroStatueImg} />
       </Container>
