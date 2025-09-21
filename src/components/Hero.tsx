@@ -176,6 +176,7 @@ export const Hero = () => {
                 fontSize: { xs: "14px", sm: "15px", md: "16px" },
                 minWidth: { xs: "200px", sm: "220px", md: "auto" },
               }}
+              href="https://wa.me/996701506085"
             >
               ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
             </AppButton>

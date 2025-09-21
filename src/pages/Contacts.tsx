@@ -34,15 +34,33 @@ const Contacts = () => {
               <Typography color="#EDCB67" mb={2}>
                 {item.title}
               </Typography>
-              <Typography mb={1}>Пн - Пт: 09:00 - 18:00</Typography>
-              <Typography>Сб-Вс: выходной</Typography>
+              {item.title === "Часы работы:" ? (
+                <>
+                  <Typography mb={1}>Пн - Пт: 09:00 - 18:00</Typography>
+                  <Typography>Сб-Вс: выходной</Typography>
+                </>
+              ) : item.title === "Адрес:" ? (
+                <>
+                  <Typography>
+                    ул. Лермонтова, 1Б/2, село Лебединовка
+                  </Typography>
+                </>
+              ) : item.title === "Телефон:" ? (
+                <>
+                  <Typography>+996 701 506 085</Typography>
+                </>
+              ) : item.title === "Почта:" ? (
+                <>
+                  <Typography>info@example.com</Typography>
+                </>
+              ) : null}
             </Box>
           ))}
         </Box>
       </Stack>
       <Box mb="120px">
         <iframe
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae1a2dfd8a05365b6a67a0f1d6bc9455a69a1643914c04d27ed61063e723a687c&amp;source=constructor"
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab0d311a23089a34d31a95013ca84e794c8f891832620d0d2b75144ccf5dcfb3e&amp;source=constructor"
           width="100%"
           height="550"
         ></iframe>

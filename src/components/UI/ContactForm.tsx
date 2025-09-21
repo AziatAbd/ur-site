@@ -2,7 +2,7 @@ import { Box, Button, TextField, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import bgItem from "../../assets/icons/bg-item.svg"
 
-const Root = styled(Box)(({ theme }) => ({
+const Root = styled('form')(({ theme }) => ({
   backgroundColor: "#1E1E1E",
   color: "white",
   padding: "64px 32px",
@@ -115,7 +115,7 @@ export const ContactForm = () => {
 
         <TextareaField fullWidth label="Ваш вопрос" multiline rows={4} />
 
-        <SubmitButton sx={{ color: "white" }} fullWidth>
+        <SubmitButton sx={{ color: "white" }} fullWidth type="submit">
           ОТПРАВИТЬ ЗАЯВКУ
         </SubmitButton>
       </LeftBlock>

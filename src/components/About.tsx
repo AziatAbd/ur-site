@@ -124,7 +124,7 @@ export const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ width: "100%" }}
+          style={{ width: "70%" }}
         >
           <Box width={{ xs: "100%", md: "80%" }}>
             <Typography
@@ -159,7 +159,6 @@ export const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          style={{ width: "100%" }}
         >
           <StatsCard>
             <CardContent
@@ -218,7 +217,6 @@ export const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          style={{ width: "100%" }}
         >
           <StatsCard sx={{ order: { xs: 2, lg: 1 } }}>
             <CardContent

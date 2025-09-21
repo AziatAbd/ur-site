@@ -162,6 +162,7 @@ const Services = () => {
             variant="contained"
             fullWidth
             sx={{ fontSize: "20px", textTransform: "uppercase" }}
+            href="https://wa.me/996701506085"
           >
             Получить консультацию
           </AppButton>
@@ -195,7 +196,7 @@ const Services = () => {
                 </ServicesList>
               </div>
 
-              <LinkStyle to={service.link}>
+              <LinkStyle to='https://wa.me/996701506085'>
                 Подробнее <ArrowRight size={18} />
               </LinkStyle>
             </ListContainer>
