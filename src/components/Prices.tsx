@@ -228,7 +228,7 @@ export const Prices = () => {
                       py: { xs: 1, sm: 1.2, md: 1.5 },
                       mt: "auto",
                     }}
-                    href="https://wa.me/996701506085"
+                    href="https://wa.me/996701506084"
                   >
                     ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
                   </AppButton>

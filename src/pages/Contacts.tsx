@@ -47,7 +47,7 @@ const Contacts = () => {
                 </>
               ) : item.title === "Телефон:" ? (
                 <>
-                  <Typography>+996 701 506 085</Typography>
+                  <Typography>+996 701 506 084</Typography>
                 </>
               ) : item.title === "Почта:" ? (
                 <>

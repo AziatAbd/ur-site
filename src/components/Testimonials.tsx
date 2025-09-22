@@ -8,6 +8,9 @@ import {
 } from "@mui/material"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { motion } from "framer-motion"
+import firstUser from "../assets/images/slide/user-1.webp"
+import secondUser from "../assets/images/slide/user-2.webp"
+import thirdUser from "../assets/images/slide/user-3.webp"
 
 import "swiper/css"
 
@@ -17,18 +20,21 @@ const testimonials = [
     avatarTitle: "Aziat",
     text: "«EBITDA выросла на 47% за 9 месяцев. Наша команда смогла сосредоточиться на росте, а не на хаосе. Это был прорыв.»",
     author: "— CEO, FMCG-компания",
+    avatar: firstUser,
   },
   {
     id: 2,
     avatarTitle: "Elena",
     text: "«Сотрудничество с ними позволило нам оптимизировать процессы и снизить издержки почти на 30%.»",
     author: "— Финансовый директор",
+    avatar: secondUser,
   },
   {
     id: 3,
     avatarTitle: "Maksat",
     text: "«Мы получили четкую стратегию развития и смогли привлечь новых инвесторов за рекордные сроки.»",
     author: "— Основатель стартапа",
+    avatar: thirdUser,
   },
 ]
 
@@ -129,6 +135,7 @@ export const Testimonials = () => {
                   >
                     <Avatar
                       title={item.avatarTitle}
+                      src={item.avatar}
                       sx={{
                         mx: "auto",
                         width: { xs: "50px", sm: "55px", md: "60px" },

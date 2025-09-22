@@ -1,34 +1,47 @@
 import { Box, Container, Grid, Typography } from "@mui/material"
-import cardSend from "../assets/icons/card-send.svg"
 import { motion } from "framer-motion"
+import {
+  Briefcase,
+  FileText,
+  Layers,
+  Shield,
+  UserCheck,
+  Wallet,
+} from "lucide-react"
 
 const advantages = [
   {
     title: "Опыт и профессионализм",
     description:
       "Наши юристы обладают многолетним опытом работы в различных областях права, что позволяет нам предоставлять услуги на высшем уровне.",
+    icon: <Briefcase width="60%" height="70%" />,
   },
   {
     title: "Индивидуальный подход",
     description:
       "Мы понимаем, что каждый клиент уникален, поэтому предлагаем персонализированные решения, соответствующие вашим потребностям.",
+    icon: <UserCheck width="60%" height="70%" />,
   },
   {
     title: "Обеспечиваем конфиденциальность",
     description:
       "Мы гарантируем полную конфиденциальность и защиту ваших данных на всех этапах сотрудничества.",
+    icon: <Shield width="60%" height="70%" />,
   },
   {
     title: "Широкий спектр услуг:",
     description: "Мы предлагаем комплексное юридическое сопровождение.",
+    icon: <Layers width="60%" height="70%" />,
   },
   {
     title: "Прозрачная отчетность",
     description: "Полная прозрачность всех процессов и операций.",
+    icon: <FileText width="60%" height="70%" />,
   },
   {
     title: "Доступные цены",
     description: "Конкурентные цены на все виды юридических услуг.",
+    icon: <Wallet width="60%" height="70%" />,
   },
 ]
 
@@ -94,15 +107,7 @@ export const WhyUs = () => {
                       flexShrink: 0,
                     }}
                   >
-                    <img
-                      src={cardSend}
-                      width={`${60 * (60 / 80)}px`}
-                      style={{
-                        width: "60%",
-                        maxWidth: "60px",
-                      }}
-                      alt="Service icon"
-                    />
+                    {advantage.icon}
                   </Box>
                   <Typography
                     variant="h6"

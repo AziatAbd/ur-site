@@ -145,7 +145,13 @@ const Services = () => {
           <Typography variant="h2" mb={2}>
             Бухгалтерские услуги
           </Typography>
-          <Typography variant="h3" mb={4}>
+          <Typography
+            variant="h3"
+            mb={4}
+            sx={{
+              fontSize: { xs: "18px", md: "24px" },
+            }}
+          >
             Стоимость от 3000 (три тысячи) сомов в месяц.
           </Typography>
           <ul>
@@ -162,7 +168,7 @@ const Services = () => {
             variant="contained"
             fullWidth
             sx={{ fontSize: "20px", textTransform: "uppercase" }}
-            href="https://wa.me/996701506085"
+            href="https://wa.me/996701506084"
           >
             Получить консультацию
           </AppButton>
@@ -196,7 +202,7 @@ const Services = () => {
                 </ServicesList>
               </div>
 
-              <LinkStyle to='https://wa.me/996701506085'>
+              <LinkStyle to="https://wa.me/996701506084">
                 Подробнее <ArrowRight size={18} />
               </LinkStyle>
             </ListContainer>
