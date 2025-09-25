@@ -41,9 +41,7 @@ const Contacts = () => {
                 </>
               ) : item.title === "Адрес:" ? (
                 <>
-                  <Typography>
-                    ул. Лермонтова, 1Б/2, село Лебединовка
-                  </Typography>
+                  <Typography>ул. Лермонтова, 1 Б стр 1</Typography>
                 </>
               ) : item.title === "Телефон:" ? (
                 <>

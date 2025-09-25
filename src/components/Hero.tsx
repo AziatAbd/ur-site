@@ -4,6 +4,8 @@ import heroImg from "../assets/images/hero/hero.png"
 import heroItemImg from "../assets/images/hero/bg-hero-item.png"
 import heroStatueImg from "../assets/images/hero/hero-statue.png"
 import { motion } from "framer-motion"
+import { ContactFormModal } from "./UI/ContactFormModal"
+import { useState } from "react"
 
 const HeroSection = styled(Box)(({ theme }) => ({
   display: "grid",
@@ -105,6 +107,12 @@ const ImageContainer = styled(Box)(({ theme }) => ({
 const MotionBox = motion(Box)
 
 export const Hero = () => {
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = () => setOpen(true)
+
+  const handleClose = () => setOpen(false)
+
   return (
     <HeroSection>
       <Container>
@@ -176,7 +184,7 @@ export const Hero = () => {
                 fontSize: { xs: "14px", sm: "15px", md: "16px" },
                 minWidth: { xs: "200px", sm: "220px", md: "auto" },
               }}
-              href="https://wa.me/996701506084"
+              onClick={handleOpen}
             >
               ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
             </AppButton>
@@ -194,6 +202,8 @@ export const Hero = () => {
           <StyledImg src={heroImg} alt="Hero image" />
         </ImageContainer>
       </motion.div>
+
+      <ContactFormModal open={open} onClose={handleClose} />
     </HeroSection>
   )
 }

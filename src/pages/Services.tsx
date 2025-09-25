@@ -5,6 +5,8 @@ import { AppButton } from "../components/UI/AppButton"
 import { NavLink } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { ContactForm } from "../components/UI/ContactForm"
+import { useState } from "react"
+import { ContactFormModal } from "../components/UI/ContactFormModal"
 
 // Массив IT услуг
 const itServices = [
@@ -133,6 +135,12 @@ const LinkStyle = styled(NavLink)({
 })
 
 const Services = () => {
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = () => setOpen(true)
+
+  const handleClose = () => setOpen(false)
+
   // Берем первые 6 услуг для отображения
   const displayServices = itServices.slice(0, 6)
 
@@ -168,7 +176,7 @@ const Services = () => {
             variant="contained"
             fullWidth
             sx={{ fontSize: "20px", textTransform: "uppercase" }}
-            href="https://wa.me/996701506084"
+            onClick={handleOpen}
           >
             Получить консультацию
           </AppButton>
@@ -211,6 +219,7 @@ const Services = () => {
       </Stack>
 
       <ContactForm />
+      <ContactFormModal open={open} onClose={handleClose} />
     </Stack>
   )
 }

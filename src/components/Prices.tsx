@@ -2,6 +2,8 @@ import { Box, Card, CardContent, Grid, Typography, styled } from "@mui/material"
 import { AppButton } from "./UI/AppButton"
 import priceStatueImg from "../assets/images/price/price-statue.png"
 import { motion } from "framer-motion"
+import { useState } from "react"
+import { ContactFormModal } from "./UI/ContactFormModal"
 
 const PricingCard = styled(Card)(({ theme }) => ({
   background: theme.palette.secondary.main,
@@ -88,6 +90,12 @@ const servicePackages = [
 ]
 
 export const Prices = () => {
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = () => setOpen(true)
+
+  const handleClose = () => setOpen(false)
+
   return (
     <Box
       sx={{
@@ -228,7 +236,7 @@ export const Prices = () => {
                       py: { xs: 1, sm: 1.2, md: 1.5 },
                       mt: "auto",
                     }}
-                    href="https://wa.me/996701506084"
+                    onClick={handleOpen}
                   >
                     ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
                   </AppButton>
@@ -247,6 +255,8 @@ export const Prices = () => {
       >
         <PriceStatusImage src={priceStatueImg} alt="" />
       </motion.div>
+
+      <ContactFormModal open={open} onClose={handleClose} />
     </Box>
   )
 }

@@ -1,8 +1,9 @@
 import { Box, Button, TextField, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import bgItem from "../../assets/icons/bg-item.svg"
+import { useState } from "react"
 
-const Root = styled('form')(({ theme }) => ({
+const Root = styled("form")(({ theme }) => ({
   backgroundColor: "#1E1E1E",
   color: "white",
   padding: "64px 32px",
@@ -97,28 +98,52 @@ const BgLines = styled(Box)(({ theme }) => ({
   },
 }))
 
+const SuccessBox = styled(Box)(() => ({
+  backgroundColor: "#16A34A",
+  color: "white",
+  padding: "40px",
+  borderRadius: "12px",
+  textAlign: "center",
+  fontSize: "20px",
+  fontWeight: 600,
+  height: "fit-content",
+  margin: "auto 0",
+}))
+
 export const ContactForm = () => {
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Здесь логика отправки данных (API вызов)
+    setSubmitted(true)
+  }
+
   return (
-    <Root>
-      <LeftBlock>
-        <Title>Получить бесплатную консультацию</Title>
-        <Description>
-          Мы предлагаем несколько пакетов услуг, чтобы удовлетворить потребности
-          вашего бизнеса. Вы можете выбрать подходящий пакет или связаться с
-          нами для разработки индивидуального предложения.
-        </Description>
+    <Root onSubmit={handleSubmit}>
+      {!submitted ? (
+        <LeftBlock>
+          <Title>Получить бесплатную консультацию</Title>
+          <Description>
+            Мы предлагаем несколько пакетов услуг, чтобы удовлетворить
+            потребности вашего бизнеса. Вы можете выбрать подходящий пакет или
+            связаться с нами для разработки индивидуального предложения.
+          </Description>
 
-        <InputGroup>
-          <StyledTextField fullWidth label="Ваше имя" />
-          <StyledTextField fullWidth label="Ваш номер телефона" />
-        </InputGroup>
+          <InputGroup>
+            <StyledTextField fullWidth label="Ваше имя" />
+            <StyledTextField fullWidth label="Ваш номер телефона" />
+          </InputGroup>
 
-        <TextareaField fullWidth label="Ваш вопрос" multiline rows={4} />
+          <TextareaField fullWidth label="Ваш вопрос" multiline rows={4} />
 
-        <SubmitButton sx={{ color: "white" }} fullWidth type="submit">
-          ОТПРАВИТЬ ЗАЯВКУ
-        </SubmitButton>
-      </LeftBlock>
+          <SubmitButton sx={{ color: "white" }} fullWidth type="submit">
+            ОТПРАВИТЬ ЗАЯВКУ
+          </SubmitButton>
+        </LeftBlock>
+      ) : (
+        <SuccessBox>✅ Ваша заявка успешно отправлена!</SuccessBox>
+      )}
 
       <BgLines>
         <img src={bgItem} alt="bgItem" />

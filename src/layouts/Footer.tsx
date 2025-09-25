@@ -1,5 +1,6 @@
 import { Box, Stack, styled, Typography } from "@mui/material"
-import { NavLink } from "react-router-dom"
+import { useEffect } from "react"
+import { NavLink, useLocation } from "react-router-dom"
 
 const StyledNavLink = styled(NavLink)(({ theme }) => ({
   padding: "8px 12px",
@@ -54,21 +55,9 @@ const FooterLink = styled(Typography)(({ theme }) => ({
   },
 }))
 
-const Copyright = styled(Typography)(({ theme }) => ({
-  fontSize: "0.75rem",
-  color: "#fff",
-  opacity: 0.9,
-
-  [theme.breakpoints.up("sm")]: {
-    fontSize: "0.8rem",
-  },
-
-  [theme.breakpoints.up("md")]: {
-    fontSize: "0.85rem",
-  },
-}))
-
 export const Footer = () => {
+  const location = useLocation()
+
   const navItems = [
     { to: "/", label: "Главная" },
     { to: "/services", label: "Услуги" },
@@ -81,6 +70,10 @@ export const Footer = () => {
     "Условия обслуживания",
     "Отказ от ответственности",
   ]
+
+  useEffect(() => {
+    window.scrollTo(0, 0) // Прокручиваем страницу в верхний левый угол
+  }, [location]) // Зависимость от location, т.е. когда маршрут изменится
 
   return (
     <Box
@@ -119,11 +112,6 @@ export const Footer = () => {
             pt: { xs: 2, sm: 3, md: 3 },
           }}
         >
-          {/* Copyright */}
-          <Copyright>
-            © 2000 - 2025 Юридическая фирма. Все права защищены.
-          </Copyright>
-
           {/* Footer Links */}
           <Box
             sx={{
